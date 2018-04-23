@@ -25,10 +25,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    line.cpp \
+    shape.cpp \
+    paintwidget.cpp \
+    mouseevent.cpp \
+    paintevent.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    line.h \
+    shape.h \
+    paintwidget.h
 
 FORMS += \
         mainwindow.ui
