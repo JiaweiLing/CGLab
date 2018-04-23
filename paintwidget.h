@@ -3,7 +3,7 @@
 #include<QWidget>
 #include "shape.h"
 #include "line.h"
-
+#include "circle.h"
 class PaintWidget : public QWidget
 {
     Q_OBJECT

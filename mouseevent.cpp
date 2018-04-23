@@ -27,6 +27,12 @@ void PaintWidget :: mousePressEvent(QMouseEvent *event)
             solid = true;
             Shape = new line;
         }
+        else
+        if (Shape_Type == shape :: circle)
+        {
+            solid = true;
+            Shape = new circle;
+        }
         if (Shape != NULL) Shape->Start(event->pos());
     }
 }

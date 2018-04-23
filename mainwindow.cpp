@@ -28,3 +28,8 @@ void MainWindow::on_pushButton_2_clicked()
 {
     emit Select_Shape(shape::line);
 }
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    emit Select_Shape(shape::circle);
+}

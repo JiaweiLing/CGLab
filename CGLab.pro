@@ -30,13 +30,15 @@ SOURCES += \
     shape.cpp \
     paintwidget.cpp \
     mouseevent.cpp \
-    paintevent.cpp
+    paintevent.cpp \
+    circle.cpp
 
 HEADERS += \
         mainwindow.h \
     line.h \
     shape.h \
-    paintwidget.h
+    paintwidget.h \
+    circle.h
 
 FORMS += \
         mainwindow.ui
