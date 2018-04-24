@@ -31,14 +31,16 @@ SOURCES += \
     paintwidget.cpp \
     mouseevent.cpp \
     paintevent.cpp \
-    circle.cpp
+    circle.cpp \
+    ellipse.cpp
 
 HEADERS += \
         mainwindow.h \
     line.h \
     shape.h \
     paintwidget.h \
-    circle.h
+    circle.h \
+    ellipse.h
 
 FORMS += \
         mainwindow.ui

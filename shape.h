@@ -6,7 +6,7 @@
 class shape
 {
     public:
-            enum Type{none, line, circle};
+            enum Type{none, line, circle, ellipse};
             shape();
             void Start(QPoint s)
             {

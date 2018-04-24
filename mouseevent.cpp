@@ -33,6 +33,11 @@ void PaintWidget :: mousePressEvent(QMouseEvent *event)
             solid = true;
             Shape = new circle;
         }
+        if (Shape_Type == shape :: ellipse)
+        {
+            solid = true;
+            Shape = new ellipse;
+        }
         if (Shape != NULL) Shape->Start(event->pos());
     }
 }

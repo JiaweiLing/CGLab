@@ -32,7 +32,7 @@ void circle :: paint(QPainter &painter)
     int x = 0, y = r;
     PlotCircle(xc, yc, x, y, painter);
 
-    int p = 1.25 - r;
+    double p = 1.25 - r;
     while (x < y)
     {
         if (p < 0)

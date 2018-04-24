@@ -4,6 +4,8 @@
 #include "shape.h"
 #include "line.h"
 #include "circle.h"
+#include "ellipse.h"
+
 class PaintWidget : public QWidget
 {
     Q_OBJECT
