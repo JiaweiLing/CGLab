@@ -24,12 +24,9 @@ class PaintWidget : public QWidget
           shape :: Type Shape_Type;
           shape *Shape;
           bool painted;
-          bool s_Point;
           bool s_Start;
           bool s_End;
           bool solid;
-          bool pix_cannot;
-          QPixmap pixmap;
           QList<shape*> shapeList;
 };
 #endif // PAINTWIDGET_H
