@@ -3,9 +3,9 @@
 
 void PaintWidget :: mousePressEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt :: LeftButton)
+    if (event->button() == Qt :: LeftButton) //如果按下鼠标左键
     {
-        if (solid)
+        if (solid) //如果对象实例化
         {
             QPoint p = event->pos();
             if ((abs(Shape->startPoint().x() - p.x()) <= 4)
@@ -22,7 +22,7 @@ void PaintWidget :: mousePressEvent(QMouseEvent *event)
                 return;
             }
         }
-        if (Shape_Type == shape :: line)
+        if (Shape_Type == shape :: line) //由选择的图形种类创建新的图形对象
         {
             solid = true;
             Shape = new line;
@@ -38,7 +38,7 @@ void PaintWidget :: mousePressEvent(QMouseEvent *event)
             solid = true;
             Shape = new ellipse;
         }
-        if (Shape != NULL) Shape->Start(event->pos());
+        if (Shape != NULL) Shape->Start(event->pos());//如果图形不为空则以相对坐标开始
     }
 }
 
@@ -63,6 +63,7 @@ void PaintWidget :: mouseMoveEvent(QMouseEvent *event)
 }
 void PaintWidget :: mouseReleaseEvent(QMouseEvent *event)
 {
+    //若按下的是鼠标左键, 则对松开后的事件进行相关变量的改变
     if (event->button() == Qt :: LeftButton)
     {
         if (Shape)

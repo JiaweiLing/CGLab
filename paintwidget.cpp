@@ -17,7 +17,7 @@ void PaintWidget :: Choose_Current_Shape(shape :: Type shpa)
         solid = false;
     }
 }
-
+//设置清屏操作导致的变量变化
 void PaintWidget :: ClearScreen()
 {
     shapeList.clear();
