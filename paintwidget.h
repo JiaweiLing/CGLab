@@ -5,7 +5,7 @@
 #include "line.h"
 #include "circle.h"
 #include "ellipse.h"
-
+#include "polygon.h"
 class PaintWidget : public QWidget
 {
     Q_OBJECT
@@ -28,5 +28,7 @@ class PaintWidget : public QWidget
           bool s_End;
           bool solid;
           QList<shape*> shapeList;
+          int PointIndex;
+          bool SelectPoint;
 };
 #endif // PAINTWIDGET_H

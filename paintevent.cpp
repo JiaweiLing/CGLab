@@ -11,4 +11,5 @@ void PaintWidget :: paintEvent(QPaintEvent *event)
         Shape->paint(painter);
     }
     if (Shape) Shape->paint(painter);
+
 }

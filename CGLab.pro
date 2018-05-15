@@ -32,7 +32,8 @@ SOURCES += \
     mouseevent.cpp \
     paintevent.cpp \
     circle.cpp \
-    ellipse.cpp
+    ellipse.cpp \
+    polygon.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,7 +41,8 @@ HEADERS += \
     shape.h \
     paintwidget.h \
     circle.h \
-    ellipse.h
+    ellipse.h \
+    polygon.h
 
 FORMS += \
         mainwindow.ui

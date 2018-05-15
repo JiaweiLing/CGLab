@@ -3,9 +3,25 @@
 
 void PaintWidget :: mousePressEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt :: LeftButton) //如果按下鼠标左键
+    if (event->button() == Qt :: LeftButton)
     {
-        if (solid) //如果对象实例化
+        if (Shape_Type == shape :: polygon && solid)
+        {
+            int i;
+            QPoint p = event->pos();
+            for (i = 0; i < Shape->PointList.length(); i++)
+            {
+                if ((abs(Shape->PointList[i].x() - p.x()) <= 4)
+                 && (abs(Shape->PointList[i].y() - p.y()) <= 4))
+                {
+                    PointIndex = i;
+                    SelectPoint = true;
+                    return;
+                }
+            }
+        }
+        else
+        if ((Shape_Type == shape :: line || Shape_Type == shape :: circle || Shape_Type == shape :: ellipse) && solid)
         {
             QPoint p = event->pos();
             if ((abs(Shape->startPoint().x() - p.x()) <= 4)
@@ -22,7 +38,7 @@ void PaintWidget :: mousePressEvent(QMouseEvent *event)
                 return;
             }
         }
-        if (Shape_Type == shape :: line) //由选择的图形种类创建新的图形对象
+        if (Shape_Type == shape :: line)
         {
             solid = true;
             Shape = new line;
@@ -38,24 +54,57 @@ void PaintWidget :: mousePressEvent(QMouseEvent *event)
             solid = true;
             Shape = new ellipse;
         }
-        if (Shape != NULL) Shape->Start(event->pos());//如果图形不为空则以相对坐标开始
+        if (Shape_Type == shape :: polygon)
+        {
+            solid = true;
+            if (painted)
+            {
+                painted = false;
+                Shape = new polygon;
+            }
+            painted = false;
+        }
+        if (Shape != NULL && Shape_Type != shape :: polygon)
+            Shape->Start(event->pos());
+        else
+        if (Shape != NULL && Shape_Type == shape :: polygon)
+            Shape->add_Point(event->pos());
+    }
+    else
+    if (event->button() == Qt :: RightButton)
+    {
+        if (Shape && Shape_Type == shape :: polygon)
+        {
+            shapeList<<Shape;
+            update();
+            painted = true;
+        }
     }
 }
 
 void PaintWidget :: mouseMoveEvent(QMouseEvent *event)
 {
-    if (s_Start)
+    if (SelectPoint && Shape_Type == shape :: polygon)
+    {
+        Shape->PointList.removeAt(PointIndex);
+        Shape->PointList.insert(PointIndex, event->pos());
+        Shape->colorPoint.clear();
+        update();
+    }
+    else
+    if (s_Start && (Shape_Type == shape :: line || Shape_Type == shape :: circle || Shape_Type == shape :: ellipse))
     {
         Shape->Start(event->pos());
         update();
     }
     else
-    if (s_End)
+    if (s_End && (Shape_Type == shape :: line || Shape_Type == shape :: circle || Shape_Type == shape :: ellipse))
     {
         Shape->End(event->pos());
         update();
     }
     else
+    if (Shape_Type != shape :: polygon)
     {
         Shape->End(event->pos());
         update();
@@ -63,14 +112,20 @@ void PaintWidget :: mouseMoveEvent(QMouseEvent *event)
 }
 void PaintWidget :: mouseReleaseEvent(QMouseEvent *event)
 {
-    //若按下的是鼠标左键, 则对松开后的事件进行相关变量的改变
     if (event->button() == Qt :: LeftButton)
     {
         if (Shape)
         {
-            if (s_Start) s_Start = false;
-            else if (s_End) s_End = false;
+            if (SelectPoint && (Shape_Type == shape :: line || Shape_Type == shape :: circle || Shape_Type == shape :: ellipse))
+                SelectPoint = false;
             else
+            if (s_Start && (Shape_Type == shape :: line || Shape_Type == shape :: circle || Shape_Type == shape :: ellipse))
+                s_Start = false;
+            else
+            if (s_End && (Shape_Type == shape :: line || Shape_Type == shape :: circle || Shape_Type == shape :: ellipse))
+                s_End = false;
+            else
+            if (Shape_Type != shape :: polygon)
             {
                 Shape->End(event->pos());
                 shapeList << Shape;

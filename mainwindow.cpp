@@ -38,3 +38,7 @@ void MainWindow::on_pushButton_4_clicked()
 {
     emit Select_Shape(shape::ellipse);
 }
+void MainWindow::on_pushButton_5_clicked()
+{
+    emit Select_Shape(shape::polygon);
+}
