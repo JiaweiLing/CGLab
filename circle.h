@@ -7,5 +7,6 @@ class circle : public shape
     public:
           circle();
           void paint(QPainter &painter);
+          void FillPolygon(QPainter &painter);
 };
 #endif // CIRCLE_H

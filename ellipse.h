@@ -7,5 +7,6 @@ class ellipse : public shape
     public:
           ellipse();
           void paint(QPainter &painter);
+          void FillPolygon(QPainter &painter);
 };
 #endif // ELLIPSE_H

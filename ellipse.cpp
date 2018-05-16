@@ -7,6 +7,10 @@ ellipse :: ellipse()
 
 }
 
+void ellipse :: FillPolygon(QPainter &painter)
+{
+
+}
 void EllipsePlot(int xc, int yc, int x, int y, QPainter &painter)
 {
     painter.drawPoint(xc + x, yc + y);

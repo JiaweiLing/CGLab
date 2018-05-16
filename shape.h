@@ -23,6 +23,7 @@ class shape
                  PointList.append(p);
             }
             void virtual paint(QPainter & painter) = 0;
+            void virtual FillPolygon(QPainter &painter) = 0;
             QList<QPoint> PointList;
             QList<QPoint> colorPoint;
     protected:

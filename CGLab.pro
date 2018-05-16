@@ -33,7 +33,8 @@ SOURCES += \
     paintevent.cpp \
     circle.cpp \
     ellipse.cpp \
-    polygon.cpp
+    polygon.cpp \
+    fillpolygon.cpp
 
 HEADERS += \
         mainwindow.h \

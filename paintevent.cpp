@@ -11,5 +11,10 @@ void PaintWidget :: paintEvent(QPaintEvent *event)
         Shape->paint(painter);
     }
     if (Shape) Shape->paint(painter);
-
+    if (Shape && fill && painted && Shape_Type == shape :: polygon)
+    {
+        painter.setPen(QColor(255, 0, 0));
+        Shape->FillPolygon(painter);
+        fill = false;
+    }
 }

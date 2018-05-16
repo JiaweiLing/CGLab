@@ -7,6 +7,11 @@ circle :: circle()
 
 }
 
+void circle :: FillPolygon(QPainter &painter)
+{
+
+}
+
 void PlotCircle(int xc, int yc, int x, int y, QPainter &painter)
 {
     painter.drawPoint(xc + x, yc + y);

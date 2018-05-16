@@ -75,6 +75,7 @@ void PaintWidget :: mousePressEvent(QMouseEvent *event)
     {
         if (Shape && Shape_Type == shape :: polygon)
         {
+            fill = false;
             shapeList<<Shape;
             update();
             painted = true;

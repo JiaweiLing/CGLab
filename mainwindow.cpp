@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //connect是QT中的连接函数, 将信号发送者sender对象中的信号signal与接受者receiver中的member槽函数联系起来
     connect(this, SIGNAL(Clear_Screen()), paintWidget, SLOT(ClearScreen()));
     connect(this, SIGNAL(Select_Shape(shape::Type)), paintWidget, SLOT(Choose_Current_Shape(shape::Type)));
-
+    connect(this, SIGNAL(fill()), paintWidget, SLOT(Fill_Polygon()));
 }
 
 MainWindow::~MainWindow()
@@ -41,4 +41,8 @@ void MainWindow::on_pushButton_4_clicked()
 void MainWindow::on_pushButton_5_clicked()
 {
     emit Select_Shape(shape::polygon);
+}
+void MainWindow::on_pushButton_6_clicked()
+{
+    emit fill();
 }

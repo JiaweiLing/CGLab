@@ -14,6 +14,7 @@ class PaintWidget : public QWidget
     public slots:
           void Choose_Current_Shape(shape :: Type shpa);
           void ClearScreen();
+          void Fill_Polygon();
     protected:
           void paintEvent(QPaintEvent *event);
           void mousePressEvent(QMouseEvent *event);
@@ -30,5 +31,6 @@ class PaintWidget : public QWidget
           QList<shape*> shapeList;
           int PointIndex;
           bool SelectPoint;
+          bool fill;
 };
 #endif // PAINTWIDGET_H

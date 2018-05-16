@@ -7,6 +7,10 @@ line :: line()
 
 }
 
+void line :: FillPolygon(QPainter &painter)
+{
+
+}
 void line :: paint(QPainter &painter)
 {
     //设置画笔

@@ -3,7 +3,7 @@
 
 PaintWidget :: PaintWidget(QWidget *parent) : QWidget(parent),
                Shape_Type(shape :: line), Shape(NULL), painted(true),
-               solid(false), SelectPoint(false),
+               solid(false), SelectPoint(false), fill(false),
                s_Start(false), s_End(false)
 {
     setMaximumSize(500, 500);
@@ -28,5 +28,11 @@ void PaintWidget :: ClearScreen()
     s_End = false;
     solid = false;
     SelectPoint = false;
+    fill = false;
     update();
+}
+void PaintWidget :: Fill_Polygon()
+{
+    fill = true;
+    if (painted) update();
 }
