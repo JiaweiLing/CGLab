@@ -32,4 +32,30 @@ void PaintWidget :: rotate(int p1, int p2, int p3, int p4)
         Shape->colorPoint.clear();
         update();
     }
+    else
+    if (Shape_Type == shape :: line)
+    {
+        int xs = Shape->startPoint().x(), ys = Shape->startPoint().y();
+        int xe = Shape->endPoint().x(), ye = Shape->endPoint().y();
+
+        double xr = (double)(xs + xe) / 2, yr = (double)(ys + ye) / 2;
+
+        double pi = 3.14159265;
+        double startx = xr + p1 * cos(pi / 6) * (xs - xr) + p2 * sin(pi / 6) * (ys - yr);
+        double starty = yr + p3 * sin(pi / 6) * (xs - xr) + p4 * cos(pi / 6) * (ys - yr);
+        double endx = xr + p1 * cos(pi / 6) * (xe - xr) + p2 * sin(pi / 6) * (ye - yr);
+        double endy = yr + p3 * sin(pi / 6) * (xe - xr) + p4 * cos(pi / 6) * (ye - yr);
+
+        QPoint result_s, result_e;
+
+        result_s.setX((int)startx);
+        result_s.setY((int)starty);
+        result_e.setX((int)endx);
+        result_e.setY((int)endy);
+
+        Shape->Start(result_s);
+        Shape->End(result_e);
+
+        update();
+    }
 }
