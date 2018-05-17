@@ -36,3 +36,13 @@ void PaintWidget :: Fill_Polygon()
     fill = true;
     if (painted) update();
 }
+
+void PaintWidget :: Clockwise()
+{
+    rotate(1, -1, 1, 1);
+}
+
+void PaintWidget :: CounterClockwise()
+{
+    rotate(1, 1, -1, 1);
+}

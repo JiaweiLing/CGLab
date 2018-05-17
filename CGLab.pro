@@ -34,7 +34,8 @@ SOURCES += \
     circle.cpp \
     ellipse.cpp \
     polygon.cpp \
-    fillpolygon.cpp
+    fillpolygon.cpp \
+    rotate.cpp
 
 HEADERS += \
         mainwindow.h \

@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this, SIGNAL(Clear_Screen()), paintWidget, SLOT(ClearScreen()));
     connect(this, SIGNAL(Select_Shape(shape::Type)), paintWidget, SLOT(Choose_Current_Shape(shape::Type)));
     connect(this, SIGNAL(fill()), paintWidget, SLOT(Fill_Polygon()));
+    connect(this, SIGNAL(clockwise()), paintWidget, SLOT(Clockwise()));
+    connect(this, SIGNAL(counterclockwise()), paintWidget, SLOT(CounterClockwise()));
 }
 
 MainWindow::~MainWindow()
@@ -45,4 +47,12 @@ void MainWindow::on_pushButton_5_clicked()
 void MainWindow::on_pushButton_6_clicked()
 {
     emit fill();
+}
+void MainWindow::on_pushButton_7_clicked()
+{
+    emit clockwise();
+}
+void MainWindow::on_pushButton_8_clicked()
+{
+    emit counterclockwise();
 }
