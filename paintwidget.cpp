@@ -46,3 +46,23 @@ void PaintWidget :: CounterClockwise()
 {
     rotate(1, 1, -1, 1);
 }
+
+void PaintWidget :: Up()
+{
+    translation(0, -1);
+}
+
+void PaintWidget :: Down()
+{
+    translation(0, 1);
+}
+
+void PaintWidget :: Left()
+{
+    translation(-1, 0);
+}
+
+void PaintWidget :: Right()
+{
+    translation(1, 0);
+}

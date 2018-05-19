@@ -77,7 +77,7 @@ void polygon :: paint_line(QPainter &painter, QPoint start, QPoint end)
 }
 void polygon :: paint(QPainter &painter)
 {
-    painter.setPen(QColor(160, 160, 160));
+    painter.setPen(QColor(255, 0, 0));
     foreach (QPoint p, PointList)
     {
         painter.drawRect(p.x() - 2, p.y() - 2, 4, 4);
