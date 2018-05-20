@@ -36,7 +36,8 @@ SOURCES += \
     polygon.cpp \
     fillpolygon.cpp \
     rotate.cpp \
-    translation.cpp
+    translation.cpp \
+    scale.cpp
 
 HEADERS += \
         mainwindow.h \

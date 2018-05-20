@@ -13,6 +13,7 @@ class PaintWidget : public QWidget
           explicit PaintWidget(QWidget *parent = 0);
           void rotate(int p1, int p2, int p3, int p4);
           void translation(int dx, int dy);
+          void scale(double multiple);
     public slots:
           void Choose_Current_Shape(shape :: Type shpa);
           void ClearScreen();
@@ -23,6 +24,8 @@ class PaintWidget : public QWidget
           void Down();
           void Left();
           void Right();
+          void Enlarge();
+          void Reduce();
     protected:
           void paintEvent(QPaintEvent *event);
           void mousePressEvent(QMouseEvent *event);

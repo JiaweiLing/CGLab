@@ -66,3 +66,13 @@ void PaintWidget :: Right()
 {
     translation(1, 0);
 }
+
+void PaintWidget :: Enlarge()
+{
+    scale(1.2);
+}
+
+void PaintWidget :: Reduce()
+{
+    scale(0.8);
+}
