@@ -25,6 +25,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(this, SIGNAL(enlarge()), paintWidget, SLOT(Enlarge()));
     connect(this, SIGNAL(reduce()), paintWidget, SLOT(Reduce()));
+
+    connect(this, SIGNAL(trimming()), paintWidget, SLOT(Trim()));
 }
 
 MainWindow::~MainWindow()
@@ -95,4 +97,9 @@ void MainWindow::on_pushButton_13_clicked()
 void MainWindow::on_pushButton_14_clicked()
 {
     emit reduce();
+}
+
+void MainWindow::on_pushButton_15_clicked()
+{
+    emit trimming();
 }

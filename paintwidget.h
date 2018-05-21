@@ -14,6 +14,7 @@ class PaintWidget : public QWidget
           void rotate(int p1, int p2, int p3, int p4);
           void translation(int dx, int dy);
           void scale(double multiple);
+          void Liang_Barsky();
     public slots:
           void Choose_Current_Shape(shape :: Type shpa);
           void ClearScreen();
@@ -26,6 +27,7 @@ class PaintWidget : public QWidget
           void Right();
           void Enlarge();
           void Reduce();
+          void Trim();
     protected:
           void paintEvent(QPaintEvent *event);
           void mousePressEvent(QMouseEvent *event);
@@ -44,5 +46,7 @@ class PaintWidget : public QWidget
           int PointIndex;
           bool SelectPoint;
           bool fill;
+          QPoint windows_start, windows_end;
+          bool trim;
 };
 #endif // PAINTWIDGET_H

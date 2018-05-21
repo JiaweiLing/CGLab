@@ -3,6 +3,8 @@
 
 void PaintWidget :: mousePressEvent(QMouseEvent *event)
 {
+    if (trim) windows_start = event->pos();
+    else
     if (event->button() == Qt :: LeftButton)
     {
         if (Shape_Type == shape :: polygon && solid)
@@ -85,6 +87,12 @@ void PaintWidget :: mousePressEvent(QMouseEvent *event)
 
 void PaintWidget :: mouseMoveEvent(QMouseEvent *event)
 {
+    if (trim)
+    {
+        windows_end = event->pos();
+        update();
+    }
+    else
     if (SelectPoint && Shape_Type == shape :: polygon)
     {
         Shape->PointList.removeAt(PointIndex);
@@ -113,6 +121,16 @@ void PaintWidget :: mouseMoveEvent(QMouseEvent *event)
 }
 void PaintWidget :: mouseReleaseEvent(QMouseEvent *event)
 {
+    if (trim)
+    {
+        windows_end = event->pos();
+        update();
+        if (solid)
+            if (Shape_Type == shape :: line)
+                Liang_Barsky();
+        trim = false;
+    }
+    else
     if (event->button() == Qt :: LeftButton)
     {
         if (Shape)

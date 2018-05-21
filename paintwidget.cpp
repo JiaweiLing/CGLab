@@ -29,6 +29,7 @@ void PaintWidget :: ClearScreen()
     solid = false;
     SelectPoint = false;
     fill = false;
+
     update();
 }
 void PaintWidget :: Fill_Polygon()
@@ -75,4 +76,9 @@ void PaintWidget :: Enlarge()
 void PaintWidget :: Reduce()
 {
     scale(0.8);
+}
+
+void PaintWidget :: Trim()
+{
+    trim = true;
 }
