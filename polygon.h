@@ -5,9 +5,9 @@
 #include<QVector>
 struct node
 {
-    int ymax;
-    double x;
-    double slope;
+    int ymax;//记录最大y值
+    double x;//记录下端点x坐标
+    double slope;//记录边斜率的倒数
 };
 class polygon : public shape
 {

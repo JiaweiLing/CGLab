@@ -126,8 +126,13 @@ void PaintWidget :: mouseReleaseEvent(QMouseEvent *event)
         windows_end = event->pos();
         update();
         if (solid)
+        {
             if (Shape_Type == shape :: line)
                 Liang_Barsky();
+            else
+            if (Shape_Type == shape :: polygon)
+                Sutherland_Hodgman();
+        }
         trim = false;
     }
     else

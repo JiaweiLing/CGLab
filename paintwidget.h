@@ -15,6 +15,7 @@ class PaintWidget : public QWidget
           void translation(int dx, int dy);
           void scale(double multiple);
           void Liang_Barsky();
+          void Sutherland_Hodgman();
     public slots:
           void Choose_Current_Shape(shape :: Type shpa);
           void ClearScreen();
