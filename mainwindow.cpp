@@ -109,3 +109,7 @@ void MainWindow::on_pushButton_16_clicked()
 {
     emit Select_Shape(shape::bezier);
 }
+void MainWindow::on_pushButton_17_clicked()
+{
+    emit Select_Shape(shape::bsample);
+}

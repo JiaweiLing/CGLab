@@ -39,7 +39,8 @@ SOURCES += \
     translation.cpp \
     scale.cpp \
     trim.cpp \
-    bezier.cpp
+    bezier.cpp \
+    bsample.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -49,7 +50,8 @@ HEADERS += \
     circle.h \
     ellipse.h \
     polygon.h \
-    bezier.h
+    bezier.h \
+    bsample.h
 
 FORMS += \
         mainwindow.ui

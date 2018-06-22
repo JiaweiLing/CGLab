@@ -7,6 +7,7 @@
 #include "ellipse.h"
 #include "polygon.h"
 #include "bezier.h"
+#include "bsample.h"
 class PaintWidget : public QWidget
 {
     Q_OBJECT

@@ -21,7 +21,7 @@ void PaintWidget :: translation(int dx, int dy)
         update();
     }
     else
-    if (Shape_Type == shape :: polygon || Shape_Type == shape :: bezier)
+    if (Shape_Type == shape :: polygon || Shape_Type == shape :: bezier || Shape_Type == shape :: bsample)
     {
         QList<QPoint> result;
         foreach (QPoint p, Shape->PointList)
