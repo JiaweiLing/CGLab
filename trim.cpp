@@ -118,7 +118,7 @@ void PaintWidget :: Sutherland_Hodgman()
         //若起始点在外侧，终止点在内侧，保存交点和终止点
         if (s.x() >= border[0] && e.x() < border[0])
         {
-            double cross = ((s.y() - e.y()) * 1.0) / ((s.x() - e.x()) * 1.0) * ((border[0] - e.x()) * 1.0) + e.y() * 1.0;
+            double cross = ((s.y() - e.y()) * 1.0) / (1.0 * (s.x() - e.x())) * (1.0 * (border[0] - e.x())) + 1.0 * e.y();
             QPoint ans;
             ans.setX(border[0]);
             ans.setY(cross);
@@ -135,7 +135,7 @@ void PaintWidget :: Sutherland_Hodgman()
         //若起始点在内侧，终止点在外侧，保存交点
         if (s.x() < border[0] && e.x() >= border[0])
         {
-            double cross = ((s.y() - e.y()) * 1.0) / ((s.x() - e.x()) * 1.0) * ((border[0] - e.x()) * 1.0) + e.y() * 1.0;
+            double cross = ((s.y() - e.y()) * 1.0) / (1.0 * (s.x() - e.x())) * (1.0 * (border[0] - e.x())) + 1.0 * e.y();
             QPoint ans;
             ans.setX(border[0]);
             ans.setY(cross);
@@ -150,7 +150,7 @@ void PaintWidget :: Sutherland_Hodgman()
         Shape->PointList.append(temp);
     }
     result.clear();
-    //对右边界进行裁剪
+    //对右边界进行裁剪o
     size = Shape->PointList.length();
     for (i = 0; i < size; i++)
     {
@@ -160,7 +160,7 @@ void PaintWidget :: Sutherland_Hodgman()
         //若起始点在外侧，终止点在内侧，保存交点和终止点
         if (s.x() <= border[1] && e.x() > border[1])
         {
-            double cross = ((s.y() - e.y()) * 1.0) / ((s.x() - e.x()) * 1.0) * ((border[1] - e.x()) * 1.0) + e.y() * 1.0;
+            double cross = ((s.y() - e.y()) * 1.0) / (1.0 * (s.x() - e.x())) * (1.0 * (border[1] - e.x())) + 1.0 * e.y();
             QPoint ans;
             ans.setX(border[1]);
             ans.setY(cross);
@@ -177,7 +177,7 @@ void PaintWidget :: Sutherland_Hodgman()
         //若起始点在内侧，终止点在外侧，保存交点
         if (s.x() > border[1] && e.x() <= border[1])
         {
-            double cross = ((s.y() - e.y()) * 1.0) / ((s.x() - e.x()) * 1.0) * ((border[1] - e.x()) * 1.0) + e.y() * 1.0;
+            double cross = ((s.y() - e.y()) * 1.0) / (1.0 * (s.x() - e.x())) * (1.0 * (border[1] - e.x())) + 1.0 * e.y();
             QPoint ans;
             ans.setX(border[1]);
             ans.setY(cross);

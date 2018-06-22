@@ -3,7 +3,7 @@
 
 void PaintWidget :: rotate(int p1, int p2, int p3, int p4)
 {
-    if (Shape_Type == shape :: polygon)
+    if (Shape_Type == shape :: polygon || Shape_Type == shape :: bezier)
     {
         int xmin = 9999, xmax = -9999, ymin = 9999, ymax = -9999;
         foreach (QPoint p, Shape->PointList)

@@ -27,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this, SIGNAL(reduce()), paintWidget, SLOT(Reduce()));
 
     connect(this, SIGNAL(trimming()), paintWidget, SLOT(Trim()));
+
 }
 
 MainWindow::~MainWindow()
@@ -102,4 +103,9 @@ void MainWindow::on_pushButton_14_clicked()
 void MainWindow::on_pushButton_15_clicked()
 {
     emit trimming();
+}
+
+void MainWindow::on_pushButton_16_clicked()
+{
+    emit Select_Shape(shape::bezier);
 }

@@ -10,7 +10,7 @@ int max(int x, int y)
 }
 void PaintWidget :: scale(double multiple)
 {
-    if (Shape_Type == shape :: polygon)
+    if (Shape_Type == shape :: polygon || Shape_Type == shape :: bezier)
     {
         int xmin = 9999, xmax = -9999;
         int ymin = 9999, ymax = -9999;

@@ -38,7 +38,8 @@ SOURCES += \
     rotate.cpp \
     translation.cpp \
     scale.cpp \
-    trim.cpp
+    trim.cpp \
+    bezier.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -47,7 +48,8 @@ HEADERS += \
     paintwidget.h \
     circle.h \
     ellipse.h \
-    polygon.h
+    polygon.h \
+    bezier.h
 
 FORMS += \
         mainwindow.ui

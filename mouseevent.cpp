@@ -7,7 +7,7 @@ void PaintWidget :: mousePressEvent(QMouseEvent *event)
     else
     if (event->button() == Qt :: LeftButton)
     {
-        if (Shape_Type == shape :: polygon && solid)
+        if ((Shape_Type == shape :: polygon || Shape_Type == shape :: bezier) && solid)
         {
             int i;
             QPoint p = event->pos();
@@ -51,11 +51,13 @@ void PaintWidget :: mousePressEvent(QMouseEvent *event)
             solid = true;
             Shape = new circle;
         }
+        else
         if (Shape_Type == shape :: ellipse)
         {
             solid = true;
             Shape = new ellipse;
         }
+        else
         if (Shape_Type == shape :: polygon)
         {
             solid = true;
@@ -66,16 +68,27 @@ void PaintWidget :: mousePressEvent(QMouseEvent *event)
             }
             painted = false;
         }
-        if (Shape != NULL && Shape_Type != shape :: polygon)
+        else
+        if (Shape_Type == shape :: bezier)
+        {
+            solid = true;
+            if (painted)
+            {
+                painted = false;
+                Shape = new bezier;
+            }
+            painted = false;
+        }
+        if (Shape != NULL && Shape_Type != shape :: polygon && Shape_Type != shape :: bezier)
             Shape->Start(event->pos());
         else
-        if (Shape != NULL && Shape_Type == shape :: polygon)
+        if (Shape != NULL && (Shape_Type == shape :: polygon || Shape_Type == shape :: bezier))
             Shape->add_Point(event->pos());
     }
     else
     if (event->button() == Qt :: RightButton)
     {
-        if (Shape && Shape_Type == shape :: polygon)
+        if (Shape && (Shape_Type == shape :: polygon || Shape_Type == shape :: bezier))
         {
             fill = false;
             shapeList<<Shape;
@@ -93,7 +106,7 @@ void PaintWidget :: mouseMoveEvent(QMouseEvent *event)
         update();
     }
     else
-    if (SelectPoint && Shape_Type == shape :: polygon)
+    if (SelectPoint && (Shape_Type == shape :: polygon || Shape_Type == shape :: bezier))
     {
         Shape->PointList.removeAt(PointIndex);
         Shape->PointList.insert(PointIndex, event->pos());
@@ -113,7 +126,7 @@ void PaintWidget :: mouseMoveEvent(QMouseEvent *event)
         update();
     }
     else
-    if (Shape_Type != shape :: polygon)
+    if (Shape_Type != shape :: polygon && Shape_Type != shape :: bezier)
     {
         Shape->End(event->pos());
         update();
@@ -140,7 +153,7 @@ void PaintWidget :: mouseReleaseEvent(QMouseEvent *event)
     {
         if (Shape)
         {
-            if (SelectPoint && (Shape_Type == shape :: line || Shape_Type == shape :: circle || Shape_Type == shape :: ellipse))
+            if (SelectPoint && (Shape_Type == shape :: polygon || Shape_Type == shape :: bezier))
                 SelectPoint = false;
             else
             if (s_Start && (Shape_Type == shape :: line || Shape_Type == shape :: circle || Shape_Type == shape :: ellipse))
@@ -149,7 +162,7 @@ void PaintWidget :: mouseReleaseEvent(QMouseEvent *event)
             if (s_End && (Shape_Type == shape :: line || Shape_Type == shape :: circle || Shape_Type == shape :: ellipse))
                 s_End = false;
             else
-            if (Shape_Type != shape :: polygon)
+            if (Shape_Type != shape :: polygon && Shape_Type != shape :: bezier)
             {
                 Shape->End(event->pos());
                 shapeList << Shape;
