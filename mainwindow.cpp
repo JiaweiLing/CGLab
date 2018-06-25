@@ -27,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this, SIGNAL(reduce()), paintWidget, SLOT(Reduce()));
 
     connect(this, SIGNAL(trimming()), paintWidget, SLOT(Trim()));
+    connect(this, SIGNAL(save()), paintWidget, SLOT(Save()));
 
 }
 
@@ -112,4 +113,8 @@ void MainWindow::on_pushButton_16_clicked()
 void MainWindow::on_pushButton_17_clicked()
 {
     emit Select_Shape(shape::bsample);
+}
+void MainWindow::on_pushButton_18_clicked()
+{
+    emit save();
 }

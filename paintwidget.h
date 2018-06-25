@@ -31,6 +31,7 @@ class PaintWidget : public QWidget
           void Enlarge();
           void Reduce();
           void Trim();
+          void Save();
     protected:
           void paintEvent(QPaintEvent *event);
           void mousePressEvent(QMouseEvent *event);
@@ -51,5 +52,6 @@ class PaintWidget : public QWidget
           bool fill;
           QPoint windows_start, windows_end;
           bool trim;
+          QPixmap pixmap;
 };
 #endif // PAINTWIDGET_H

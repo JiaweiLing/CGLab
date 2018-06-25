@@ -40,7 +40,8 @@ SOURCES += \
     scale.cpp \
     trim.cpp \
     bezier.cpp \
-    bsample.cpp
+    bsample.cpp \
+    save.cpp
 
 HEADERS += \
         mainwindow.h \
